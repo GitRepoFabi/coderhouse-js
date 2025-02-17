@@ -1,5 +1,5 @@
 <h1>
-  Primera pre-entrega – Comisión 69265 – Javascript - Coderhouse
+Primera pre-entrega – Comisión 69265 – Javascript - Coderhouse
 </h1>
 
 <h3>Objetivos generales:</h3>
