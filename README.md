@@ -5,6 +5,7 @@ Primera pre-entrega – Comisión 69265 – Javascript - Coderhouse
 <h3>Objetivos generales:</h3>
 
 <p>
+  
 - Armar la estructura base del simulador
 
 - Integrar las herramientas JS aprendidas hasta aquí
@@ -14,6 +15,7 @@ Primera pre-entrega – Comisión 69265 – Javascript - Coderhouse
 <h3>Objetivos específicos</h3>
 
 <p>
+  
 - Declara variables, constantes y arrays
   
 - Crea una o más funciones JS que generen interacción
