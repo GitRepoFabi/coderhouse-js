@@ -12,7 +12,7 @@ Primera pre-entrega – Comisión 69265 – Javascript - Coderhouse
 
 </p>
 
-<h3>Objetivos específicos</h3>
+<h3>Objetivos específicos:</h3>
 
 <p>
   
