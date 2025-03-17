@@ -127,7 +127,9 @@ Segunda pre-entrega – Comisión 69265 – Javascript - Coderhouse
 
 <h3>Mi carrito:</h3>
 
-<p>Si se ha comprado algún producto y presionamos el botón "Mi Carrito" veremos en consola los item's que compramos: </p>
+<p>Si se ha comprado algún producto y presionamos el botón "Mi Carrito" veremos en consola los item's que compramos además de verlo visualmente: </p>
 
 <img width="340" alt="image" src="https://github.com/user-attachments/assets/86fe29d1-1ce2-4520-9c5c-ae672e87ffcf" />
+
+<img width="110" alt="image" src="https://github.com/user-attachments/assets/5a06e482-b7e2-4768-8ad3-8866c5c9bba0" />
 
