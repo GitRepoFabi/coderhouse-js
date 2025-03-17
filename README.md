@@ -109,8 +109,7 @@ Segunda pre-entrega – Comisión 69265 – Javascript - Coderhouse
 
 <p>Si vemos en la lista de productos disponibles ha desaparecido el item de "Televisión" y se ha agregado en la sección de "Mi Carrito": </p>
 
-<img width="135" alt="image" src="https://github.com/user-attachments/assets/f3840f32-552b-4d9d-a955-863d733210ab" />
-
+<img width="554" alt="image" src="https://github.com/user-attachments/assets/8ee467df-e3da-4637-ad38-5ee828039248" />
 
 <h3>Vender producto:</h3>
 
@@ -124,7 +123,7 @@ Segunda pre-entrega – Comisión 69265 – Javascript - Coderhouse
 
 <p>Si vemos en la lista de productos disponibles ha aparecido el item de "Televisión" nuevamente y ha desaparecido de la sección de "Mi Carrito": </p>
 
-<img width="134" alt="image" src="https://github.com/user-attachments/assets/14a1dad7-e51d-4da6-afad-5739e8878940" />
+<img width="556" alt="image" src="https://github.com/user-attachments/assets/0dfc2010-48cd-450f-ac04-29e891f6ff43" />
 
 <h3>Mi carrito:</h3>
 
