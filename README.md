@@ -131,5 +131,7 @@ Segunda pre-entrega – Comisión 69265 – Javascript - Coderhouse
 
 <img width="340" alt="image" src="https://github.com/user-attachments/assets/86fe29d1-1ce2-4520-9c5c-ae672e87ffcf" />
 
+<br/>
+
 <img width="110" alt="image" src="https://github.com/user-attachments/assets/5a06e482-b7e2-4768-8ad3-8866c5c9bba0" />
 
