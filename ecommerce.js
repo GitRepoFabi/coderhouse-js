@@ -1,113 +1,82 @@
-let productos = [
-    { "producto": "Televisión" },
-    { "producto": "Celular" },
-    { "producto": "Sillón" },
-    { "producto": "Monitor" },
-    { "producto": "Teclado" },
-    { "producto": "Mouse" }
-];
-
+let productos = [];  // Aquí almacenaremos los productos cargados del archivo JSON
 let carrito = [];
 
+// Cargamos los productos desde el archivo JSON
+async function cargar_productos_desde_json() {
+    try {
+        const resultado = await fetch("db/productos.json");
+        const datos = await resultado.json();
+        productos = datos; // Guardamos los productos en la variable global
+        mostrar_productos(); // Muestro los productos traidos desde el JSON
+    } catch (error) {
+        console.error("Error al cargar los productos:", error);
+    }
+}
 
-if (localStorage.getItem("carrito")){
-    
-    //Recupero los valores del carrito
+//Llamo a la función para cargar los productos desde el JSON
+cargar_productos_desde_json();
+
+//Código que selecciona los productos y por cada click que se haga al elemento llama a la función "comprar_producto" 
+//para comprar dicho producto pasándole como parámetro el nombre del producto.
+const producto_click = document.querySelectorAll("#productos");
+producto_click.forEach((pr) => {
+    pr.addEventListener("click", (evet) => {
+        comprar_producto(event.target.textContent);
+    })
+});
+
+//Código que selecciona los productos y por cada click que se haga al elemento llama a la función "vender_producto" 
+//para vender dicho producto pasándole como parámetro el nombre del producto .
+const producto_a_vender = document.querySelectorAll("#inventario");
+producto_a_vender.forEach((pr) => {
+    pr.addEventListener("click", (evet) => {
+        vender_producto(event.target.textContent);
+    })
+});
+
+// Recargar el carrito desde localStorage
+if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
-
-    //Muestro el carrito si tengo algo en el LocalStorage
-    mostrarCarrito();
-}
-
-/// Funciones básicas //
-
-//Función onlick botón "Comprar Producto"
-function comprar_prompt() {
-    const productoPromp = prompt("¿Qué producto desea comprar?");
-    if (productoPromp !== null) {
-        comprar_producto(productoPromp);
-    } else {
-        console.log("Usted presionó la tecla ESC");
-    }
-}
-
-//Función onlick botón "Vender Producto"
-function vender_prompt(){
-    const productoPromp = prompt("¿Qué producto desea vender?");
-
-    if (productoPromp !== null){
-        vender_producto(productoPromp);
-    } else {
-        console.log("Usted presionó la tecla ESC"); 
-    }
-    
-}
-
-//Función onlick botón "Mi Carrito"
-function mi_carrito(){
-    if (carrito.length !== 0){
-        console.log("Carrito actual: ");
-
-        for (let indice=0; indice < carrito.length;indice++){
-            console.log(carrito[indice]);
-        }
-    } else {
-        console.log("El carrito esta vacío");
-    }   
+    mostrarCarrito(); // Mostrar el carrito si ya hay productos
 }
 
 function comprar_producto(item) {
-
     const productoEncontrado = productos.find(producto => producto.producto === item);
     if (productoEncontrado) {
-
-        //Agrego el item al carrito
         carrito.push(item);
-        console.log("El item "+item+ " se ha agregado al carrito");
+        Toastify({
+            text: "¡Has comprado " + item + "!",
+            duration: 3000
+        }).showToast();
 
-        // Busco el índice del producto en el array
         const index = productos.findIndex(producto => producto.producto === item);
-
-        // Eliminamos el elemento del array de productos y refrescamos la visual con lo nuevo
         productos.splice(index, 1);
-        mostrar_productos();    
+        mostrar_productos();
 
-        // Guardar el carrito en localStorage
-        guardarCarrito();  
-        
-        //Muestro actualizado el carrito
-        mostrarCarrito();    
-    } else {
-        console.error("No tengo nada de '" + item + "' disponible a la compra.");
+        guardarCarrito();
+        mostrarCarrito();
     }
-
 }
 
 function vender_producto(item) {
-    // Encuentra el índice del producto a eliminar
     const index = carrito.indexOf(item);
 
     if (index !== -1) {
-        //Elimino del carrito el item que quiero vender para que esté disponible nuevamente
         carrito.splice(index, 1);
+        productos.push({ "producto": item });
 
-        //Añadimos el producto de vuelta a los productos disponibles
-        productos.push({"producto": item});        
+        Toastify({
+            //text: "¡El item " + item + " se ha vendido!",
+            text: "¡Se ha vendido " + item + "!",
+            duration: 3000
+        }).showToast();
 
-        //Actualiza el localStorage
         guardarCarrito();
-
-        //Muestro los productos
         mostrar_productos();
-        
-        // Muestra el carrito actualizado
         mostrarCarrito();
-    } else {
-        console.log("El item '" + item + "' no se encuentra en el carrito.");
     }
 }
 
-// Función para mostrar los productos en el HTML
 function mostrar_productos() {
     const productoDiv = document.getElementById('productos');
     productoDiv.innerHTML = ''; // Limpiar cualquier contenido previo
@@ -123,28 +92,18 @@ function mostrar_productos() {
         ul.appendChild(li);
     });
 
-    productoDiv.appendChild(ul); // Agregar el listado al div
+    productoDiv.appendChild(ul);
 }
 
-mostrar_productos();
-
-// Función para guardar el carrito en localStorage
 function guardarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Función para mostrar los productos del carrito agregados al localStorage
 function mostrarCarrito() {
-    //Traigo los elementos del localStorage
     let carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
-
-    //Obtengo el div donde vamos a mostrar los productos
     const inventarioDiv = document.getElementById('inventario');
+    inventarioDiv.innerHTML = '';
 
-    // Limpio el contenido previamente
-    inventarioDiv.innerHTML = ''; 
-
-    // Crear la lista de productos
     const ul = document.createElement('ul');
     carritoGuardado.forEach(item => {
         const li = document.createElement('li');
@@ -152,6 +111,5 @@ function mostrarCarrito() {
         ul.appendChild(li);
     });
 
-    // Agregar la lista de productos al div 'inventario'
     inventarioDiv.appendChild(ul);
 }
