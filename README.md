@@ -173,16 +173,16 @@ Entrega final – Comisión 69265 – Javascript - Coderhouse
 
 <p>Cuando abrimos la página se nos desplegará lo siguiente: </p>
 
-<img width="333" alt="image" src="https://github.com/user-attachments/assets/14c34582-4335-47d6-a8cc-fc2bbfe4c87b" />
+![image](https://github.com/user-attachments/assets/75245e6f-9b3d-45a9-aa7b-e454a202f3a6)
 
 <p> Cabe destacar que en esta entrega debíamos traer los elementos de un archivo externo o de un lugar remoto, en este caso lo traemos de un JSON que tiene la siguiente estructura: </p>
 
 <p>Para comprar un producto sólo basta con hacer click sobre el producto que se desea y el mismo se agregará a "Mi Carrito" y saldrá la alerta</p>
 
-<img width="366" alt="image" src="https://github.com/user-attachments/assets/ac5ecf28-82cb-4953-8223-4127e2be71ae" />
+![image](https://github.com/user-attachments/assets/d0cbe664-7a24-46fc-9714-81905b9e293b)
 
 <h3>Vender producto:</h3>
 
 <p>Para vender un producto sólo basta con hacer click sobre el/los productos que se deseen vender de "Mi Carrito" y saldrá la alerta</p>
 
-<img width="134" alt="image" src="https://github.com/user-attachments/assets/14a1dad7-e51d-4da6-afad-5739e8878940" />
+![image](https://github.com/user-attachments/assets/3e3feaea-ab2d-45bc-b211-05bcfabbd6cd)
